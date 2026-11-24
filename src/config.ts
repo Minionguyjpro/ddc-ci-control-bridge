@@ -25,8 +25,8 @@ export function loadConfig(): ServerConfig {
     mqttHost: process.env.MQTT_HOST || 'localhost',
     mqttPort: parseInt(process.env.MQTT_PORT || '1883', 10),
     // Use API key as MQTT password for simplicity
-    mqttUsername: 'ddc-mcp',
-    mqttPassword: apiKey,
+    mqttUsername: process.env.MQTT_USERNAME || 'ddc-mcp',
+    mqttPassword: process.env.MQTT_PASSWORD || apiKey,
     autoScan: process.env.AUTO_SCAN !== 'false',
     scanInterval: parseInt(process.env.SCAN_INTERVAL || '300', 10),
     logLevel: process.env.LOG_LEVEL || 'info',
